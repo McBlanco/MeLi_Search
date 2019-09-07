@@ -1,10 +1,10 @@
-import React from 'react';
 import './App.scss';
-import { Main } from './components/Main';
+import { MainContainer } from './components/Main';
+import * as React from 'react';
 
 const App: React.FC = () => {
   return (
-    <Main />
+    <MainContainer />
   );
 }
 
