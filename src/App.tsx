@@ -1,4 +1,4 @@
-import './App.scss';
+import './App.css';
 import { MainContainer } from './components/Main';
 import * as React from 'react';
 import { LanguageSelectorContainer } from './components/LanguageSelector';

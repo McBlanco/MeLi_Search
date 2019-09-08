@@ -12,15 +12,14 @@ export class CardList extends React.Component<ICardListProps, {}> {
             <div className={'cardListContainer'}>
                 {
                     this.props.Items && this.props.Items.length > 0 &&
-                    this.props.Items.map(i => {
-                        console.log(i);
+                    this.props.Items.map((item, index) => {
                         return (
-                            <div className={'cardItemContainer'}>
-                                <Image className={'cardItemImage'} src={i.thumbnail} />
+                            <div key={index} className={'cardItemContainer'} onClick={() => this._onOpenLink(item.permalink)}>
+                                <Image className={'cardItemImage'} src={item.thumbnail} />
                                 <div className={'cardDetailContainer'}>
-                                    <NumberFormat className={'cardPrice'} value={i.price} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+                                    <NumberFormat className={'cardPrice'} value={item.price} displayType={'text'} thousandSeparator={true} prefix={'$'} />
                                     {/* {`_${i.currency_id}`} */}
-                                    <div className={'cardTitle'}>{i.title}</div>
+                                    <div className={'cardTitle'}>{item.title}</div>
                                     <div className={'cardOpenDetails'}>{this.props.strings.OpenDetails}</div>
                                 </div>
                             </div>
@@ -36,6 +35,10 @@ export class CardList extends React.Component<ICardListProps, {}> {
                 }
             </div>
         );
+    }
+
+    private _onOpenLink = (link: string) => {
+        window.open(link, "_blank");
     }
 }
 
