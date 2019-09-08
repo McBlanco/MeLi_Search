@@ -17,6 +17,7 @@ export class LanguageSelector extends React.Component<ILanguageSelectorProps, {}
             {
               key: "selectedLanguage",
               name: this.props.strings.getLanguage().toUpperCase(),
+              iconProps: { iconName: "LocaleLanguage" },
               subMenuProps: {
                 items: this.props.strings.getAvailableLanguages().map(l => {
                   return {
