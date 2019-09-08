@@ -1,7 +1,7 @@
 export interface ISearchState {
   currentPage: number;
   hasMorePage: boolean;
-  pageResults: any;
+  response: any;
   country: string;
   isBusy: boolean;
 }

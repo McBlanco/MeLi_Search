@@ -11,7 +11,21 @@ export default (state: ISearchState = initialState.searchState, action: Action):
     case ActionTypes.SEARCH_REQUEST:
       return {
         ...state,
+        isBusy: true,
       } as ISearchState;
+
+      case ActionTypes.SEARCH_REQUEST_SUCCESS:
+        return {
+          ...state,
+          response: {
+            ...action.response,
+            paging: {
+              ...action.response.paging,
+            },
+            results: action.response.results.map((i: any) => i),
+          },
+          isBusy: false,
+        } as ISearchState
 
     default:
       return state;

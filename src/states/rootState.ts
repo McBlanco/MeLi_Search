@@ -11,7 +11,7 @@ export const initialState: IRootState = {
   searchState: {
     currentPage: 1,
     hasMorePage: true,
-    pageResults: null,
+    response: null,
     country: "MLA",
     isBusy: false,
   },

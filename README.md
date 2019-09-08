@@ -41,6 +41,7 @@ he procedido con la creación de una nueva aplicación en React con NodeJS y el 
 * Office UI Fabric
 * React-Localization
 * SASS-Loader
+* React-Number-Format
 
 <a name="compile"></a>
 ## Descargar y compilar el proyecto

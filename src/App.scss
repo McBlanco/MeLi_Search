@@ -35,12 +35,46 @@
   }
 }
 
-.appContainer {
-  @extend .App;
-  
+.appContainer { 
   padding: 1rem 1rem 1rem 1rem;
+  font-size: 0.9rem;
 }
 
 .selectorLanguageContainer {
   padding: 0rem 0rem 1rem 0rem;
+}
+
+.cardItemContainer {
+  display: flex;
+  padding: 1rem;
+}
+
+.cardItemImage {
+  padding-right: 1.5rem;
+}
+
+.noItemMessageText {
+  color: red;
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 500;
+  padding-top: 1rem;
+}
+
+.cardPrice {
+  color: green;
+}
+
+.cardOpenDetails {
+  color: #2565b7;
+}
+
+.cardItemContainer:hover {
+  background: #dcdcfb;
+  filter: brightness(0.9);
+  cursor: pointer;
+}
+
+.cardOpenDetails:hover {
+  font-size: 0.91rem;
 }
