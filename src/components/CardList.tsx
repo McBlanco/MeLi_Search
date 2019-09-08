@@ -1,9 +1,10 @@
 import { connect } from "react-redux";
 import * as React from "react";
-import { Image } from "office-ui-fabric-react";
+import { Image, ImageFit } from "office-ui-fabric-react";
 import { IRootState } from "../states/rootState";
 import { ICardListProps } from "./ICardListProps";
 import NumberFormat from 'react-number-format';
+import { OpenPanel } from "../actions/openPanelAction";
 
 export class CardList extends React.Component<ICardListProps, {}> {
 
@@ -15,12 +16,12 @@ export class CardList extends React.Component<ICardListProps, {}> {
                     this.props.Items.map((item, index) => {
                         return (
                             <div key={index} className={'cardItemContainer'} onClick={() => this._onOpenLink(item.permalink)}>
-                                <Image className={'cardItemImage'} src={item.thumbnail} />
+                                <Image className={'cardItemImage'} imageFit={ImageFit.contain} src={item.thumbnail} />
                                 <div className={'cardDetailContainer'}>
                                     <NumberFormat className={'cardPrice'} value={item.price} displayType={'text'} thousandSeparator={true} prefix={'$'} />
                                     {/* {`_${i.currency_id}`} */}
                                     <div className={'cardTitle'}>{item.title}</div>
-                                    <div className={'cardOpenDetails'}>{this.props.strings.OpenDetails}</div>
+                                    <div className={'cardOpenDetails'} onClick={(event) => { event.stopPropagation(); this._onOpenPanel(item); }}>{this.props.strings.OpenDetails}</div>
                                 </div>
                             </div>
                         );
@@ -40,6 +41,10 @@ export class CardList extends React.Component<ICardListProps, {}> {
     private _onOpenLink = (link: string) => {
         window.open(link, "_blank");
     }
+
+    private _onOpenPanel = (item: any) => {
+        this.props.openPanel(item);
+    }
 }
 
 const mapStateToProps = (state: IRootState): ICardListProps => {
@@ -52,7 +57,9 @@ const mapStateToProps = (state: IRootState): ICardListProps => {
 };
 
 const mapDispatchToProps = (dispatch: any): ICardListProps => ({
-
+    openPanel: (item: any) => {
+        dispatch(OpenPanel(item, true));
+    }
 });
 
 export const CardListContainer = connect(mapStateToProps, mapDispatchToProps)(CardList);

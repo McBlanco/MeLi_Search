@@ -25,7 +25,20 @@ export default (state: ISearchState = initialState.searchState, action: Action):
             results: action.response.results.map((i: any) => i),
           },
           isBusy: false,
-        } as ISearchState
+        } as ISearchState;
+
+      case ActionTypes.OPEN_PANEL:
+        return {
+          ...state,
+          isPanelOpen: true,
+          currentItem: action.item,
+        } as ISearchState;
+
+      case ActionTypes.DISMISS_PANEL:
+        return {
+          ...state,
+          isPanelOpen: false,
+        } as ISearchState;
 
     default:
       return state;

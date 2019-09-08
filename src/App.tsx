@@ -3,6 +3,7 @@ import { MainContainer } from './components/Main';
 import * as React from 'react';
 import { LanguageSelectorContainer } from './components/LanguageSelector';
 import { CardListContainer } from './components/CardList';
+import { ItemDetailsPanelContainer } from './components/ItemDetailsPanel';
 
 const App: React.FC = () => {
   return (
@@ -10,6 +11,7 @@ const App: React.FC = () => {
       <LanguageSelectorContainer />
       <MainContainer />
       <CardListContainer />
+      <ItemDetailsPanelContainer />
     </div>
   );
 }

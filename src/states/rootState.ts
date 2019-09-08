@@ -14,5 +14,7 @@ export const initialState: IRootState = {
     response: null,
     country: "MLA",
     isBusy: false,
+    isPanelOpen: false,
+    currentItem: null,
   },
 }

@@ -4,4 +4,6 @@ export interface ISearchState {
   response: any;
   country: string;
   isBusy: boolean;
+  isPanelOpen: boolean;
+  currentItem: any;
 }
