@@ -1,5 +1,4 @@
 import { IMainProps } from "./IMainProps";
-import strings from "../localization/strings";
 import { connect } from "react-redux";
 import { Search } from "../actions/searchAction";
 import * as React from "react";
@@ -12,7 +11,7 @@ export class Main extends React.Component<IMainProps, {}> {
   public render() {
     return (
       <div className={'mainContainer'}>
-        <SearchBox placeholder={strings.SearchPlaceholder} onSearch={newValue => this._onSeach(newValue)} />
+        <SearchBox placeholder={this.props.strings.SearchPlaceholder} onSearch={newValue => this._onSeach(newValue)} />
       </div>
     );
   }
@@ -23,6 +22,7 @@ export class Main extends React.Component<IMainProps, {}> {
 }
 
 const mapStateToProps = (state: IRootState): IMainProps => ({
+  strings: state.languageStrings,
 });
 
 const mapDispatchToProps = (dispatch: any): IMainProps => ({

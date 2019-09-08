@@ -6,7 +6,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from "./store/index";
-import { initialState } from './states/searchState';
+import { initialState } from './states/rootState';
 
 initializeIcons(/* optional base url */);
 

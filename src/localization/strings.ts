@@ -4,14 +4,11 @@ export interface IStrings extends LocalizedStrings.LocalizedStringsMethods {
     SearchPlaceholder: string;
 }
 
-let strings: IStrings;
-strings = new LocalizedStrings.default({
+export const strings: IStrings = new LocalizedStrings.default({
     en: {
         SearchPlaceholder: "Search products, brands, and more...",
     },
     es: {
-        SearchPlaceholder: "Buscar productos, marcas, y más..."
+        SearchPlaceholder: "Buscar productos, marcas, y más...",
     }
 });
-
-export default strings;

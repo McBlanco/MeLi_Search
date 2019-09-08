@@ -35,8 +35,12 @@
   }
 }
 
-.mainContainer {
+.appContainer {
   @extend .App;
   
   padding: 1rem 1rem 1rem 1rem;
+}
+
+.selectorLanguageContainer {
+  padding: 0rem 0rem 1rem 0rem;
 }
