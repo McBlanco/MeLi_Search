@@ -61,6 +61,9 @@ ReactJS es una librería de JavaScript para desarrollar interfaces de usuario, c
 * NodeJS LTS 10.4
 
 ### Paso a paso
+1. Descargar o clonar el código del repositorio.
+2. Ejecutar el comando 'npm install' estado ubicado en el directorio donde se descargó el código para descargar todas las dependencias.
+3. Ejecutar el comando 'npm start' para inciar la aplicación.
 
 [azurewebsite]: https://melisearch.azurewebsites.net
 [reactjs]: https://reactjs.org/
