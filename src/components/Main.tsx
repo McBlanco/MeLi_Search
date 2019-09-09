@@ -2,7 +2,7 @@ import { IMainProps } from "./IMainProps";
 import { connect } from "react-redux";
 import { Search } from "../actions/searchAction";
 import * as React from "react";
-import { SearchBox } from "office-ui-fabric-react";
+import { SearchBox, PrimaryButton } from "office-ui-fabric-react";
 import { IRootState } from "../states/rootState";
 
 

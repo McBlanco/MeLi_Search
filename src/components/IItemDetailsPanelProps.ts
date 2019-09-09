@@ -5,6 +5,7 @@ export interface IItemDetailsPanelProps {
     IsOpen?: boolean;
     strings?: IStrings;
     itemDetails?: any;
+    IsBusy?: boolean;
     dismissPanel?(): void;
     getItem?(itemId: string): void;
 }

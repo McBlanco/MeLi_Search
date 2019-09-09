@@ -1,7 +1,7 @@
 import { IItemDetailsPanelProps } from "./IItemDetailsPanelProps";
 import React from "react";
 import { IRootState } from "../states/rootState";
-import { Panel, PanelType, ImageFit } from "office-ui-fabric-react";
+import { Panel, PanelType, ImageFit, Spinner, SpinnerSize } from "office-ui-fabric-react";
 import { connect } from "react-redux";
 import { OpenPanel } from "../actions/openPanelAction";
 import { GetItem } from "../actions/getItemAction";
@@ -19,20 +19,23 @@ export class ItemDetailsPanel extends React.Component<IItemDetailsPanelProps, {}
                 {
                     this.props.Item &&
                     <div>
-                        <div className={'panelTitle'}>{this.props.Item.title}</div>
-                        <div className={'panelDate'}>{ moment.locale((this.props.strings && this.props.strings.getLanguage && this.props.strings.getLanguage()) || "en") && moment(this.props.Item.start_time).format("LLL")}</div>
-                        {
-                            this.props.itemDetails && this.props.itemDetails.pictures && this.props.itemDetails.pictures.length > 0 &&
-                            <div>
-                                <Carousel className={'imagesCarousel'} showArrows={true} showThumbs={false} showStatus={false} >
-                                    {
-                                        this.props.itemDetails.pictures.map((p: any, index: number) =>
-                                            <Image key={`_carouselImage${index}`} className={'imageCarousel'} src={p.url} imageFit={ImageFit.contain} />
-                                        )
-                                    }
-                                </Carousel>
-                            </div>
-                        }
+                        <Spinner className={`spinner ${this.props.IsBusy ? 'visibleElement' : 'hiddenElement'}`} size={SpinnerSize.large} />
+                        <div className={this.props.IsBusy ? 'hiddenElement' : 'visibleElement'}>
+                            <div className={'panelTitle'}>{this.props.Item.title}</div>
+                            <div className={'panelDate'}>{moment.locale((this.props.strings && this.props.strings.getLanguage && this.props.strings.getLanguage()) || "en") && moment(this.props.Item.start_time).format("LLL")}</div>
+                            {
+                                this.props.itemDetails && this.props.itemDetails.pictures && this.props.itemDetails.pictures.length > 0 &&
+                                <div>
+                                    <Carousel className={'imagesCarousel'} showArrows={true} showThumbs={false} showStatus={false} >
+                                        {
+                                            this.props.itemDetails.pictures.map((p: any, index: number) =>
+                                                <Image key={`_carouselImage${index}`} className={'imageCarousel'} src={p.url} imageFit={ImageFit.contain} />
+                                            )
+                                        }
+                                    </Carousel>
+                                </div>
+                            }
+                        </div>
                     </div>
                 }
             </Panel>
@@ -53,6 +56,7 @@ const mapStateToProps = (state: IRootState): IItemDetailsPanelProps => ({
     Item: state.searchState.currentItem,
     strings: state.languageStrings,
     itemDetails: state.itemState.currentItem,
+    IsBusy: state.searchState.isBusy,
 });
 
 const mapDispatchToProps = (dispatch: any): IItemDetailsPanelProps => ({

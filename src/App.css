@@ -102,3 +102,18 @@
   padding-top: 0.5rem;
   color: gray;
 }
+
+.spinner {
+  position: absolute;
+  top: 10rem;
+  left: 50%;
+  right: 50%;
+}
+
+.visibleElement {
+  opacity: 1;
+}
+
+.hiddenElement {
+  opacity: 0;
+}

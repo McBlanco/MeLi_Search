@@ -8,12 +8,20 @@ import { ItemState } from '../states/itemState';
 export default (state: any = initialState, action: Action): ItemState => {
 
     switch (action.type) {
+
+        case ActionTypes.GET_ITEM_REQUEST:
+            return {
+                ...state,
+                isBusy: true,
+            } as ItemState;
+
         case ActionTypes.GET_ITEM_REQUEST_SUCCESS:
             return {
                 ...state,
                 currentItem: {
                     ...action.response,
-                }
+                },
+                isBusy: false,
             } as ItemState;
 
         default:
