@@ -22,7 +22,7 @@ export class LanguageSelector extends React.Component<ILanguageSelectorProps, {}
                 items: this.props.strings.getAvailableLanguages().map(l => {
                   return {
                     key: l,
-                    name: l,
+                    name: l.toUpperCase(),
                     canCheck: true,
                     checked: this.props.strings.getLanguage() === l,
                     onClick: () => this._onClick(l),

@@ -30,18 +30,29 @@ he procedido con la creación de una nueva aplicación en React con NodeJS y el 
 
 <a name="dessignPatterns"></a>
 ## Patrones de diseño
+ReactJS es una librería de JavaScript para desarrollar interfaces de usuario, con manejo de estados, basado en la creación de componentes (que pueden hacer de vistas o controles de usuario). Sin embargo cuando la aplicación crece, se vuelve complejo y tedioso el manejo de estados, ya que deben transferirse de componentes padres a hijos; por ello he integrado la App con Redux, un manejador de estados que se pueden acceder globalmente desde todos los componentes conectados. Gracias a esto, también he implementado con facilidad la localización de literales e idiomas para convertirla en una aplicación multi-idioma.
 * Modelo
+    * Mi idea era utilizar modelos o clases a partir de las definiciones de los métodos de la API de Mercado Libre, aunque por falta de tiempo he aprovechado la flexibilidad en el tipado que ofrece TypeScript para trabajar con objetos de tipo genérico. Si bien esto puede elevar la cantidad de errores producidos, he añadido las validaciones correspondientes para evitarlos; además el uso de interfaces o contratos en el código contribuye a evitar errores no controlados y mejora su legibilidad y entendimiento.
 * Vista
+    * Las vistas de React son 'componentes de React', y cada uno tiene su propia definición de propiedades y métodos. He creado los componentes para el buscador, los resultados, el detalle y el selector de idiomas. Me valí mayormente de los controles de usuario open-source de Microsoft Office UI Fabric, y también de otras utilidades para las aplicaciones React. Con Redux he adaptado las pantallas para soportar la característica multi-idioma y el refresco de datos.
 * Controlador
+    * En la capa de 'providers' (o servicios) están los controladores para hacer las llamadas a los módulos de Search e Items de la API de Mercado Libre. De nuevo Redux tiene un papel principal en la conexión con las vistas al despachar desde allí las acciones para obtener los datos y luego procesarlos con los 'reducers' y volcarlos finalmente por pantalla. En este caso los controladores son 'searchProvider' e 'itemProvider'.
+
+    También era mi idea implementar los tests de la interfaz, básicamente comprobar que no hay errores en el renderizado de los componentes, y de las acciones de Redux, y los métodos de los providers. Aunque durante los primeros 4 días del ejercicio tuve una carga laboral muy pesada y sólo pude dedicar 1 o 2 horas cada día. En los días 5 y 6 los he dedicado por completo a terminar el ejercicio, pero aún así no fue suficiente para todos los detalles por lo que prioricé lo que es crítico para que la aplicación se pueda entregar y probar. Aunque habiendo planificado minuciosamente la arquitectura desde un principio, y desarrollando con prolijidad en cada momento y con versionado de la resolución de cada tarea (ver el historial de commits), se pueden evitar en gran medida los errores a posterior. Para el tema de manejo de errores desde el lado del desarrollador: Redux permite una trazabilidad visible desde la consola de Chrome con la extensión de Redux DevTools, para conocer el historial de los cambios de estados, despacho de acciones, o errores producidos, también lo he implementado en el código. Desde el lado del usuario no lo he trabajado casi, solamente en el caso de que una búsqueda devuelva 0 resultados.
+
+    Entiendo que el objetivo del ejercicio es desarrollar una aplicación para móviles, pero nunca lo he hecho antes. Conociendo los paradigmas de React y Redux, es 'prácticamente lo mismo' el desarrollo de Apps para móviles con 'React Native' y 'Expo'. Necesitaba entregar una aplicación que sea responsiva y se vea bien desde un teléfono, se puede acceder al sitio web de Azure desde un navegador y probarlo en una pantalla pequeña. 
+    También esto servirá para consolidar mis conocimientos y forma de trabajar.
 
 <a name="dependences"></a>
 ## Dependencias
-* React
-* Redux
-* Office UI Fabric
+* [React][reactjs]
+* [Redux][reduxjs]
+* [Office UI Fabric][office-ui-fabric]
 * React-Localization
-* SASS-Loader
 * React-Number-Format
+* React-Responsive-Carousel
+* Moment
+* Jest
 
 <a name="compile"></a>
 ## Descargar y compilar el proyecto
@@ -52,3 +63,6 @@ he procedido con la creación de una nueva aplicación en React con NodeJS y el 
 ### Paso a paso
 
 [azurewebsite]: https://melisearch.azurewebsites.net
+[reactjs]: https://reactjs.org/
+[reduxjs]: https://redux.js.org/
+[office-ui-fabric]: https://developer.microsoft.com/en-us/fabric#/controls/web

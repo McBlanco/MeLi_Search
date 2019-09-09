@@ -1,0 +1,7 @@
+{
+    "appService.zipIgnorePattern": [
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/bd0b371d-6691-4511-bcae-6e2635f2a3f0/resourceGroups/Sphere/providers/Microsoft.Web/sites/melisearch",
+    "appService.deploySubpath": "build"
+}

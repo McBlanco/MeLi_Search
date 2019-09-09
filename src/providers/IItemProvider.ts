@@ -1,8 +1,7 @@
 import { IMeliProvider } from "./IMeliProvider";
 import { IRootState } from "../states/rootState";
 
-export interface ISearchProvider extends IMeliProvider {
+export interface IItemProvider extends IMeliProvider {
     State: IRootState;
-    Search(query: string): any;
-    GetCountry (): string;
+    GetItem(itemId: string): Promise<any>;
 }

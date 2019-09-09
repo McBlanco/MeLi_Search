@@ -85,3 +85,20 @@
 .cardOpenDetails:hover {
   font-size: 0.91rem;
 }
+
+.imageCarousel {
+  height: 15rem;
+}
+
+.imagesCarousel {
+  padding: 2rem 0rem;
+}
+
+.panelTitle {
+  font-size: 1.2rem;
+}
+
+.panelDate {
+  padding-top: 0.5rem;
+  color: gray;
+}

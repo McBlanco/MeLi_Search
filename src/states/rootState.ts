@@ -1,9 +1,11 @@
 import { strings, IStrings } from "../localization/strings";
 import { ISearchState } from "./searchState";
+import { ItemState } from "./itemState";
 
 export interface IRootState {
   languageStrings: IStrings;
   searchState: ISearchState;
+  itemState: ItemState;
 }
 
 export const initialState: IRootState = {
@@ -17,4 +19,8 @@ export const initialState: IRootState = {
     isPanelOpen: false,
     currentItem: null,
   },
+  itemState: {
+    isBusy: false,
+    currentItem: null,
+  }
 }

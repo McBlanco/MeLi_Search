@@ -7,6 +7,7 @@ import { errorMiddleware } from "../middlewares/errorMiddleware";
 import { ISearchState } from "../states/searchState";
 import { IRootState } from "../states/rootState";
 import languageReducer from "../reducers/languageReducer";
+import itemReducer from "../reducers/itemReducer";
 
 export function createStore(initialState: IRootState): Store<ISearchState> {
 
@@ -16,7 +17,7 @@ export function createStore(initialState: IRootState): Store<ISearchState> {
     LogRocket.reduxMiddleware()
   ];
 
-  const reducers = combineReducers({searchState: searchReducer, languageStrings: languageReducer})
+  const reducers = combineReducers({searchState: searchReducer, languageStrings: languageReducer, itemState: itemReducer})
 
   let composite: StoreEnhancer<any, {}> = composeWithDevTools(
       applyMiddleware(...middlewares));
